@@ -9,8 +9,8 @@
 
     <View
         android:id="@+id/circle_big"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+        android:layout_width="@dimen/_280sdp"
+        android:layout_height="@dimen/_280sdp"
         android:layout_margin="0dp"
         android:background="@drawable/solid_circle_big"
         app:layout_constraintBottom_toBottomOf="@+id/antenna"
@@ -20,8 +20,8 @@
 
     <View
         android:id="@+id/circle_middle"
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="@dimen/_210sdp"
+        android:layout_height="@dimen/_210sdp"
         android:background="@drawable/solid_circle_middle"
         app:layout_constraintBottom_toBottomOf="@+id/antenna"
         app:layout_constraintEnd_toEndOf="@+id/antenna"
@@ -30,64 +30,69 @@
 
     <View
         android:id="@+id/circle_small"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
         android:background="@drawable/solid_circle_small"
         app:layout_constraintBottom_toBottomOf="@+id/antenna"
         app:layout_constraintEnd_toEndOf="@+id/antenna"
         app:layout_constraintStart_toStartOf="@+id/antenna"
         app:layout_constraintTop_toTopOf="@+id/antenna" />
 
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lowasis Gateway"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintBottom_toTopOf="@+id/peerCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/peerCount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="5 networks near of you"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintBottom_toTopOf="@+id/antenna"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
     <ImageView
         android:id="@+id/antenna"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/peerList"
+        android:layout_width="@dimen/_32sdp"
+        android:layout_height="@dimen/_32sdp"
+
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/peerCount"
         app:srcCompat="@drawable/ic_antenna" />
 
-    <TextView
-        android:id="@+id/title"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Lowasis Gateway"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-    <TextView
-        android:id="@+id/peerCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="5 networks neer of you"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
-    <com.lowasis.gatewaylist.SquareFrameLayout
-        android:id="@+id/peerList"
-        android:layout_width="fill_parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/peer"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
+        tools:listitem="@layout/item_recycler_view" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/peer"
-            tools:listitem="@layout/item_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.lowasis.gatewaylist.SquareFrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

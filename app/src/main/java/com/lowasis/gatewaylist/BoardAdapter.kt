@@ -2,6 +2,7 @@ package com.lowasis.gatewaylist
 
 import android.graphics.Color
 import android.graphics.ColorSpace.Rgb
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -29,9 +30,10 @@ class BoardAdapter(private val itemList: ArrayList<BoardItem>) :
     inner class BoardViewHolder(private val binding: ItemRecyclerViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: BoardItem) {
-            binding.root.setBackgroundColor(if (data.favor) Color.argb(0x80, 0xaa, 0xda, 0xfe) else Color.argb(0x20, 0xff, 0xff, 0xff))
+            binding.root.setBackgroundColor(if (data.favor) Color.argb(0x80, 0xaa, 0xff, 0xfe) else Color.argb(0x10, 0xff, 0xff, 0xff))
+            binding.tvName.setTypeface(null, if (data.favor) Typeface.BOLD else Typeface.NORMAL)
             //binding.tvName.setBackgroundColor(if (data.favor) Color.rgb(0xaa, 0xda, 0xfe) else Color.WHITE)
-            binding.tvName.setTextColor(if (data.state) Color.RED else Color.WHITE)
+            binding.tvName.setTextColor(if (data.state) Color.rgb(0xaa, 0x00, 0x00) else Color.WHITE)
             binding.tvName.text = data.name
         }
     }

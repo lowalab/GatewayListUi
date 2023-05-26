@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         itemList.add(BoardItem("DIRECT-LOWASIS-5E:86:A3", false, true))
         itemList.add(BoardItem("DIRECT-LOWASIS-5E:87:A3", true, false))
         itemList.add(BoardItem("DIRECT-LOWASIS-5E:88:A3", false, false))
-        itemList.add(BoardItem("DIRECT-LOWASIS-5E:89:A3", false, true))
-        itemList.add(BoardItem("DIRECT-LOWASIS-5E:8a:A3", false, true))
+        //itemList.add(BoardItem("DIRECT-LOWASIS-5E:89:A3", false, true))
+        //itemList.add(BoardItem("DIRECT-LOWASIS-5E:8a:A3", false, true))
 
         binding.peer.adapter =  BoardAdapter(itemList)
         binding.peer.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
